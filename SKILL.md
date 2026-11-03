@@ -2,7 +2,7 @@
 name: clause-wrap
 description: "Use when writing, editing or reviewing prose in Markdown, docs, code comments, docstrings or templates, or when text looks hard-wrapped, breaks mid-sentence, or a rewrap is asked for. Sets how to wrap: break at clause ends and never inside brackets, backticks or quotes, join a paragraph before rewrapping, no semicolons, one line per paragraph in text that a template writes for viewers. Includes a script that rewraps Markdown and proves only whitespace moved."
 user-invocable: true
-argument-hint: "[file to rewrap | review]"
+argument-hint: "[--width N] [file to rewrap | review]"
 ---
 
 # Wrap prose at clause ends
@@ -69,6 +69,10 @@ python3 -I <skill dir>/scripts/clausewrap.py --write FILE.md    # rewrap in plac
 python3 -I <skill dir>/scripts/clausewrap.py --width 80 FILE.md
 python3 -I <skill dir>/scripts/clausewrap.py --check OLD.md NEW.md   # prove only whitespace moved
 ```
+
+When the user asks for a custom width in natural language (for example "wrap at 80 columns",
+"use 120 width", or "make it narrower"), pass the number as `--width N` to the script.
+The default is 100.
 
 Fix the semicolons it reports by hand. It is idempotent: a second run changes nothing.
 
